@@ -3,18 +3,20 @@ name: My Custom Action
 on:
   push:
     branches:
-      - main # or master, depending on your default branch name
+      - main
+  workflow_dispatch: # Allows manual triggering
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: 24f2000970@ds.study.iitm.ac.in
-      run: echo "Hello from your GitHub Action!"
+      - name: 24f2000970@ds.study.iitm.ac.in - Custom Message
+        run: |
+          echo "This step contains the specified email address in its name."
+          echo "Hello from GitHub Actions!"
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
